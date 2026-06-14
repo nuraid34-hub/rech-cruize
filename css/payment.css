@@ -1,0 +1,142 @@
+/* Payment Section */
+.payment-methods-tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  gap: 10px;
+}
+
+.payment-tab {
+  background: #e2e8f0;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  color: #4a5568;
+  transition: all 0.2s ease;
+}
+
+.payment-tab.active {
+  background: #2563eb;
+  color: white;
+}
+
+.payment-tab:hover:not(.active) {
+  background: #cbd5e0;
+}
+
+.payment-content {
+  display: none;
+  padding: 0 10px; /* Отступы для контента вкладки */
+}
+
+.payment-content.active {
+  display: block;
+}
+
+/* Card Input Styles */
+.card-input-group {
+  margin-bottom: 20px;
+}
+
+.card-input-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #4a5568;
+  font-size: 14px; /* Уменьшил размер шрифта для соответствия label на booking.html */
+}
+
+.card-input-group input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #cbd5e0;
+  border-radius: 8px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.card-input-group input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+.card-number-wrapper {
+  position: relative;
+}
+
+.card-type-icon {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px; /* Размер иконки */
+  height: 24px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: none; /* Скрываем по умолчанию */
+  background-position: center right;
+}
+
+.card-details-row {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.card-details-row .expiry,
+.card-details-row .cvc {
+  flex: 1;
+}
+
+.pay-button {
+  width: 100%;
+  padding: 15px;
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.payment-security-info {
+  margin-top: 25px;
+  text-align: center;
+  font-size: 14px;
+  color: #718096;
+}
+
+.payment-demo-info {
+  background: #fef3c7;
+  border: 1px solid #fbbf24;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 30px; /* Отступ от формы */
+}
+
+.payment-demo-info p {
+  color: #92400e;
+  font-size: 14px;
+  margin: 0;
+}
+
+/* Card Error Message */
+.card-error {
+  color: #ef4444; /* Красный цвет для ошибки */
+  font-size: 13px;
+  margin-top: 8px;
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition:
+    height 0.3s ease,
+    opacity 0.3s ease,
+    margin-top 0.3s ease;
+}
+
+.card-error.visible {
+  height: 16px; /* Примерная высота строки текста */
+  opacity: 1;
+  margin-top: 8px;
+}

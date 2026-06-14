@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Каталог круизов - РечКруиз</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <a href="index.html" class="logo">
+            <div class="logo-icon">⚓</div>
+            <div class="logo-text">
+              <h2>РечКруиз</h2>
+              <p>Путешествия по рекам</p>
+            </div>
+          </a>
+
+          <nav>
+            <ul>
+              <li><a href="index.html">Главная</a></li>
+              <li><a href="catalog.html">Круизы</a></li>
+              <li><a href="fleet.html">Флот</a></li>
+              <li><a href="about.html">О компании</a></li>
+              <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+          </nav>
+
+          <!-- Блок для авторизации -->
+          <div id="header-auth-controls"></div>
+          <button class="mobile-menu-btn">☰</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main style="padding: 60px 0">
+      <div class="container">
+        <div style="margin-bottom: 40px">
+          <h1>Каталог круизов</h1>
+          <p style="color: #6b7280; font-size: 18px; margin-top: 10px">
+            Найдено <span id="results-count">4</span> круиза
+          </p>
+        </div>
+
+        <!-- Filters -->
+        <div class="filters">
+          <div style="margin-bottom: 20px">
+            <input
+              type="text"
+              id="search-input"
+              placeholder="🔍 Поиск по названию или маршруту..."
+              style="
+                width: 100%;
+                padding: 12px 20px;
+                border: 1px solid #d1d5db;
+                border-radius: 8px;
+                font-size: 16px;
+              "
+            />
+          </div>
+
+          <div class="filter-row">
+            <div class="filter-group">
+              <label>Река / Направление</label>
+              <select id="river-filter">
+                <option value="all">Все реки</option>
+                <option value="Волга">Волга</option>
+                <option value="Нева">Нева</option>
+                <option value="Рейн">Рейн</option>
+                <option value="Дунай">Дунай</option>
+              </select>
+            </div>
+
+            <div class="filter-group">
+              <label>Длительность</label>
+              <select id="duration-filter">
+                <option value="all">Любая</option>
+                <option value="5-7">5-7 дней</option>
+                <option value="8-10">8-10 дней</option>
+                <option value="11-14">11-14 дней</option>
+                <option value="15+">15+ дней</option>
+              </select>
+            </div>
+
+            <div class="filter-group">
+              <label>Цена</label>
+              <select id="price-filter">
+                <option value="all">Любая</option>
+                <option value="0-60000">До 60 000 ₽</option>
+                <option value="60000-100000">60 000 - 100 000 ₽</option>
+                <option value="100000-150000">100 000 - 150 000 ₽</option>
+                <option value="150000+">От 150 000 ₽</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cruises List -->
+        <div
+          id="cruises-container"
+          style="
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+            gap: 30px;
+          "
+        >
+          <!-- Круизы будут загружены через JavaScript -->
+        </div>
+
+        <!-- No Results -->
+        <div
+          id="no-results"
+          class="hidden"
+          style="text-align: center; padding: 60px 20px"
+        >
+          <div style="font-size: 64px; margin-bottom: 20px">🔍</div>
+          <h3>Круизы не найдены</h3>
+          <p style="color: #6b7280; margin-top: 10px">
+            Попробуйте изменить параметры поиска
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-section">
+            <div class="logo" style="color: white; margin-bottom: 15px">
+              <div class="logo-icon">⚓</div>
+              <div class="logo-text">
+                <h2 style="color: white">РечКруиз</h2>
+              </div>
+            </div>
+            <p style="color: #94a3b8; margin-bottom: 15px">
+              Организация речных круизов по России и Европе с 2005 года
+            </p>
+          </div>
+
+          <div class="footer-section">
+            <h3>Навигация</h3>
+            <ul>
+              <li><a href="catalog.html">Круизы</a></li>
+              <li><a href="fleet.html">Флот</a></li>
+              <li><a href="about.html">О компании</a></li>
+              <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-section">
+            <h3>Контакты</h3>
+            <ul>
+              <li>☎️ +7 (495) 123-45-67</li>
+              <li>📧 info@rechkruiz.ru</li>
+              <li>📍 Москва, ул. Речная, д. 15</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2025 РечКруиз. Все права защищены.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/data.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+    <script>
+      let filteredCruises = cruises;
+
+      // Функция отображения круизов
+      function displayCruises(cruisesToShow) {
+        const container = document.getElementById("cruises-container");
+        const noResults = document.getElementById("no-results");
+        const resultsCount = document.getElementById("results-count");
+
+        resultsCount.textContent = cruisesToShow.length;
+
+        if (cruisesToShow.length === 0) {
+          container.innerHTML = "";
+          noResults.classList.remove("hidden");
+        } else {
+          noResults.classList.add("hidden");
+          container.innerHTML = cruisesToShow
+            .map(
+              (cruise) => `
+                    <div class="cruise-card" style="display: flex; cursor: pointer;" onclick="goToCruise('${cruise.id}')">
+                        <div style="width: 40%; position: relative; overflow: hidden;">
+                            <img src="${cruise.image}" alt="${cruise.title}" style="width: 100%; height: 100%; object-fit: cover;">
+                            <div class="cruise-badge">${cruise.duration} дней</div>
+                        </div>
+                        <div style="width: 60%; padding: 20px;">
+                            <h3 style="margin-bottom: 10px;">${cruise.title}</h3>
+                            <p style="color: #6b7280; margin-bottom: 15px;">${cruise.subtitle}</p>
+                            <div style="display: flex; align-items: start; gap: 8px; color: #6b7280; font-size: 14px; margin-bottom: 15px;">
+                                <span>📍</span>
+                                <span>${cruise.route}</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 8px; color: #6b7280; font-size: 14px; margin-bottom: 20px;">
+                                <span>🌊</span>
+                                <span>${cruise.river}</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 15px; border-top: 1px solid #e5e7eb;">
+                                <div>
+                                    <div style="font-size: 12px; color: #6b7280;">от</div>
+                                    <div style="font-size: 20px; color: #2563eb; font-weight: 600;">${formatPrice(cruise.price)}</div>
+                                </div>
+                                <a href="cruise-detail.html?id=${cruise.id}" class="btn btn-primary">Подробнее →</a>
+                            </div>
+                        </div>
+                    </div>
+                `,
+            )
+            .join("");
+        }
+      }
+
+      // Функция применения фильтров
+      function applyFilters() {
+        const searchQuery = document.getElementById("search-input").value;
+        const selectedRiver = document.getElementById("river-filter").value;
+        const selectedDuration =
+          document.getElementById("duration-filter").value;
+        const selectedPrice = document.getElementById("price-filter").value;
+
+        filteredCruises = filterCruises(
+          searchQuery,
+          selectedRiver,
+          selectedDuration,
+          selectedPrice,
+        );
+        displayCruises(filteredCruises);
+      }
+
+      // Инициализация
+      document.addEventListener("DOMContentLoaded", function () {
+        displayCruises(cruises);
+
+        // Добавляем обработчики событий
+        document
+          .getElementById("search-input")
+          .addEventListener("input", applyFilters);
+        document
+          .getElementById("river-filter")
+          .addEventListener("change", applyFilters);
+        document
+          .getElementById("duration-filter")
+          .addEventListener("change", applyFilters);
+        document
+          .getElementById("price-filter")
+          .addEventListener("change", applyFilters);
+      });
+    </script>
+  </body>
+</html>

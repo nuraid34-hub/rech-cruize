@@ -1,0 +1,653 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Бронирование - РечКруиз</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/payment.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <a href="index.html" class="logo">
+            <div class="logo-icon">⚓</div>
+            <div class="logo-text">
+              <h2>РечКруиз</h2>
+              <p>Путешествия по рекам</p>
+            </div>
+          </a>
+
+          <nav>
+            <ul>
+              <li><a href="index.html">Главная</a></li>
+              <li><a href="catalog.html">Круизы</a></li>
+              <li><a href="fleet.html">Флот</a></li>
+              <li><a href="about.html">О компании</a></li>
+              <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+          </nav>
+
+          <!-- Блок для авторизации -->
+          <div id="header-auth-controls"></div>
+          <button class="mobile-menu-btn">☰</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main style="padding: 60px 0">
+      <div class="container">
+        <a
+          href="catalog.html"
+          style="
+            display: inline-block;
+            color: #2563eb;
+            text-decoration: none;
+            margin-bottom: 30px;
+          "
+        >
+          ← Назад к каталогу
+        </a>
+
+        <h1 style="margin-bottom: 40px">Бронирование круиза</h1>
+
+        <!-- Progress Steps -->
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 50px;
+          "
+        >
+          <div style="display: flex; align-items: center; gap: 10px">
+            <div
+              id="step1-indicator"
+              style="
+                width: 40px;
+                height: 40px;
+                background: #2563eb;
+                color: white;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 600;
+              "
+            >
+              1
+            </div>
+            <span id="step1-text" style="color: #2563eb; font-weight: 600"
+              >Выбор</span
+            >
+          </div>
+          <div
+            style="width: 60px; height: 2px; background: #d1d5db"
+            id="line1"
+          ></div>
+          <div style="display: flex; align-items: center; gap: 10px">
+            <div
+              id="step2-indicator"
+              style="
+                width: 40px;
+                height: 40px;
+                background: #d1d5db;
+                color: #6b7280;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 600;
+              "
+            >
+              2
+            </div>
+            <span id="step2-text" style="color: #6b7280">Данные</span>
+          </div>
+          <div
+            style="width: 60px; height: 2px; background: #d1d5db"
+            id="line2"
+          ></div>
+          <div style="display: flex; align-items: center; gap: 10px">
+            <div
+              id="step3-indicator"
+              style="
+                width: 40px;
+                height: 40px;
+                background: #d1d5db;
+                color: #6b7280;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 600;
+              "
+            >
+              3
+            </div>
+            <span id="step3-text" style="color: #6b7280">Оплата</span>
+          </div>
+        </div>
+
+        <!-- Booking Form -->
+        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 40px">
+          <!-- Left Column - Form Steps -->
+          <div>
+            <form id="booking-form">
+              <!-- Step 1: Select Cruise -->
+              <div
+                id="step1"
+                style="
+                  background: white;
+                  border-radius: 12px;
+                  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                  padding: 40px;
+                "
+              >
+                <h2 style="margin-bottom: 30px">Выберите круиз и даты</h2>
+
+                <div style="display: flex; flex-direction: column; gap: 20px">
+                  <div>
+                    <label
+                      style="
+                        display: block;
+                        margin-bottom: 8px;
+                        font-size: 14px;
+                      "
+                      >Круиз *</label
+                    >
+                    <select
+                      id="cruise-select"
+                      required
+                      style="
+                        width: 100%;
+                        padding: 12px;
+                        border: 1px solid #d1d5db;
+                        border-radius: 8px;
+                        font-size: 16px;
+                      "
+                    >
+                      <option value="">Выберите круиз</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label
+                      style="
+                        display: block;
+                        margin-bottom: 8px;
+                        font-size: 14px;
+                      "
+                      >Дата отправления *</label
+                    >
+                    <input
+                      type="date"
+                      id="date-input"
+                      required
+                      style="
+                        width: 100%;
+                        padding: 12px;
+                        border: 1px solid #d1d5db;
+                        border-radius: 8px;
+                        font-size: 16px;
+                      "
+                    />
+                  </div>
+
+                  <div
+                    style="
+                      display: grid;
+                      grid-template-columns: 1fr 1fr;
+                      gap: 20px;
+                    "
+                  >
+                    <div>
+                      <label
+                        style="
+                          display: block;
+                          margin-bottom: 8px;
+                          font-size: 14px;
+                        "
+                        >Взрослых *</label
+                      >
+                      <input
+                        type="number"
+                        id="adults-input"
+                        required
+                        min="1"
+                        max="10"
+                        value="2"
+                        style="
+                          width: 100%;
+                          padding: 12px;
+                          border: 1px solid #d1d5db;
+                          border-radius: 8px;
+                          font-size: 16px;
+                        "
+                      />
+                    </div>
+                    <div>
+                      <label
+                        style="
+                          display: block;
+                          margin-bottom: 8px;
+                          font-size: 14px;
+                        "
+                        >Детей (до 12 лет)</label
+                      >
+                      <input
+                        type="number"
+                        id="children-input"
+                        min="0"
+                        max="10"
+                        value="0"
+                        style="
+                          width: 100%;
+                          padding: 12px;
+                          border: 1px solid #d1d5db;
+                          border-radius: 8px;
+                          font-size: 16px;
+                        "
+                      />
+                    </div>
+                  </div>
+
+                  <div id="cabin-types-container" style="display: none">
+                    <label
+                      style="
+                        display: block;
+                        margin-bottom: 15px;
+                        font-size: 14px;
+                      "
+                      >Тип каюты *</label
+                    >
+                    <div
+                      id="cabin-types"
+                      style="display: flex; flex-direction: column; gap: 15px"
+                    >
+                      <!-- Cabin types will be loaded here -->
+                    </div>
+                    <div
+                      id="cabin-image-preview"
+                      style="
+                        margin-top: 20px;
+                        text-align: center;
+                        display: none;
+                      "
+                    >
+                      <img
+                        src=""
+                        alt="Предпросмотр каюты"
+                        style="
+                          max-width: 100%;
+                          border-radius: 8px;
+                          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                        "
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Step 2: Personal Info (hidden initially) -->
+              <div
+                id="step2"
+                class="hidden"
+                style="
+                  background: white;
+                  border-radius: 12px;
+                  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                  padding: 40px;
+                "
+              >
+                <h2 style="margin-bottom: 30px">Ваши данные</h2>
+
+                <div style="display: flex; flex-direction: column; gap: 20px">
+                  <div
+                    style="
+                      display: grid;
+                      grid-template-columns: 1fr 1fr;
+                      gap: 20px;
+                    "
+                  >
+                    <div>
+                      <label
+                        style="
+                          display: block;
+                          margin-bottom: 8px;
+                          font-size: 14px;
+                        "
+                        >Имя *</label
+                      >
+                      <input
+                        type="text"
+                        id="firstname-input"
+                        required
+                        placeholder="Иван"
+                        style="
+                          width: 100%;
+                          padding: 12px;
+                          border: 1px solid #d1d5db;
+                          border-radius: 8px;
+                          font-size: 16px;
+                        "
+                      />
+                    </div>
+                    <div>
+                      <label
+                        style="
+                          display: block;
+                          margin-bottom: 8px;
+                          font-size: 14px;
+                        "
+                        >Фамилия *</label
+                      >
+                      <input
+                        type="text"
+                        id="lastname-input"
+                        required
+                        placeholder="Иванов"
+                        style="
+                          width: 100%;
+                          padding: 12px;
+                          border: 1px solid #d1d5db;
+                          border-radius: 8px;
+                          font-size: 16px;
+                        "
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label
+                      style="
+                        display: block;
+                        margin-bottom: 8px;
+                        font-size: 14px;
+                      "
+                      >Email *</label
+                    >
+                    <input
+                      type="email"
+                      id="email-input"
+                      required
+                      placeholder="ivan@example.com"
+                      style="
+                        width: 100%;
+                        padding: 12px;
+                        border: 1px solid #d1d5db;
+                        border-radius: 8px;
+                        font-size: 16px;
+                      "
+                    />
+                  </div>
+
+                  <div>
+                    <label
+                      style="
+                        display: block;
+                        margin-bottom: 8px;
+                        font-size: 14px;
+                      "
+                      >Телефон *</label
+                    >
+                    <input
+                      type="tel"
+                      id="phone-input"
+                      required
+                      placeholder="+7 (999) 123-45-67"
+                      style="
+                        width: 100%;
+                        padding: 12px;
+                        border: 1px solid #d1d5db;
+                        border-radius: 8px;
+                        font-size: 16px;
+                      "
+                    />
+                  </div>
+
+                  <div>
+                    <label
+                      style="
+                        display: block;
+                        margin-bottom: 8px;
+                        font-size: 14px;
+                      "
+                      >Комментарии и пожелания</label
+                    >
+                    <textarea
+                      id="comments-input"
+                      rows="4"
+                      placeholder="Особые пожелания, диетические ограничения и т.д."
+                      style="
+                        width: 100%;
+                        padding: 12px;
+                        border: 1px solid #d1d5db;
+                        border-radius: 8px;
+                        font-size: 16px;
+                        resize: vertical;
+                      "
+                    ></textarea>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Step 3: Payment (hidden initially) -->
+              <div
+                id="step3"
+                class="hidden"
+                style="
+                  background: white;
+                  border-radius: 12px;
+                  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                  padding: 40px;
+                "
+              >
+                <h2 style="margin-bottom: 30px">Оплата</h2>
+
+                <!-- Payment Tabs -->
+                <div class="payment-methods-tabs">
+                  <button
+                    type="button"
+                    class="payment-tab active"
+                    data-method="card"
+                  >
+                    💳 Карта
+                  </button>
+                  <button type="button" class="payment-tab" data-method="bank">
+                    🏦 Перевод
+                  </button>
+                </div>
+
+                <!-- Payment Content -->
+                <div>
+                  <!-- Card Payment Form -->
+                  <div id="payment-card" class="payment-content active">
+                    <div class="card-input-group">
+                      <label for="card-number">Номер карты</label>
+                      <div class="card-number-wrapper">
+                        <input
+                          type="text"
+                          id="card-number"
+                          placeholder="0000 0000 0000 0000"
+                          maxlength="19"
+                        />
+                        <div class="card-type-icon"></div>
+                      </div>
+                      <div id="card-error-message" class="card-error"></div>
+                    </div>
+                    <div class="card-details-row">
+                      <div class="expiry card-input-group">
+                        <label for="card-expiry">Срок</label>
+                        <input
+                          type="text"
+                          id="card-expiry"
+                          placeholder="ММ/ГГ"
+                          maxlength="5"
+                        />
+                      </div>
+                      <div class="cvc card-input-group">
+                        <label for="card-cvc">CVC/CVV</label>
+                        <input
+                          type="password"
+                          id="card-cvc"
+                          placeholder="•••"
+                          maxlength="3"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Bank Transfer Content -->
+                  <div
+                    id="payment-bank"
+                    class="payment-content"
+                    style="
+                      padding: 20px;
+                      background: #f3f4f6;
+                      border-radius: 8px;
+                    "
+                  >
+                    <p><strong>Реквизиты для банковского перевода:</strong></p>
+                    <p>Получатель: ООО "РечКруиз"</p>
+                    <p>ИНН: 1234567890</p>
+                    <p>Счет: 40702810100000001234</p>
+                    <p>Банк: АО "РЕЧФЛОТБАНК"</p>
+                    <p>БИК: 044525123</p>
+                  </div>
+                </div>
+
+                <!-- Demo Info -->
+                <div class="payment-demo-info">
+                  <p>
+                    <strong>Обратите внимание:</strong> Это демо-версия.
+                    Реальная оплата не производится.
+                  </p>
+                </div>
+                <!-- <div style="background: #fef3c7; border: 1px solid #fbbf24; border-radius: 8px; padding: 20px;">
+                                    <p style="color: #92400e; font-size: 14px;">
+                                        <strong>Обратите внимание:</strong> Это демо-версия. Реальная оплата не производится.
+                                        В рабочей версии здесь будет интеграция с платёжной системой.
+                                    </p>
+                                </div> -->
+              </div>
+
+              <!-- Navigation Buttons -->
+              <div style="display: flex; gap: 20px; margin-top: 30px">
+                <button
+                  type="button"
+                  id="back-btn"
+                  class="btn btn-outline"
+                  style="display: none"
+                >
+                  ← Назад
+                </button>
+                <button
+                  type="button"
+                  id="next-btn"
+                  class="btn btn-primary"
+                  style="flex: 1"
+                >
+                  Продолжить →
+                </button>
+              </div>
+            </form>
+
+            <!-- Success Message (hidden initially) -->
+            <div
+              id="success-message"
+              class="hidden"
+              style="
+                background: white;
+                border-radius: 12px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                padding: 60px;
+                text-align: center;
+              "
+            >
+              <div style="font-size: 80px; margin-bottom: 20px">✅</div>
+              <h2 style="margin-bottom: 20px">Бронирование оформлено!</h2>
+              <p style="color: #6b7280; font-size: 18px; margin-bottom: 30px">
+                Спасибо за бронирование! Подтверждение отправлено на ваш email.
+              </p>
+              <div style="display: flex; gap: 20px; justify-content: center">
+                <a href="index.html" class="btn btn-primary">На главную</a>
+                <a href="catalog.html" class="btn btn-outline"
+                  >Смотреть другие круизы</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column - Summary -->
+          <div>
+            <div
+              style="
+                background: white;
+                border-radius: 12px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                padding: 30px;
+                position: sticky;
+                top: 100px;
+              "
+            >
+              <h3 style="margin-bottom: 20px">Ваше бронирование</h3>
+
+              <div
+                id="booking-summary"
+                style="display: flex; flex-direction: column; gap: 20px"
+              >
+                <p style="color: #6b7280; text-align: center; padding: 40px 0">
+                  Выберите круиз для начала бронирования
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-section">
+            <div class="logo" style="color: white; margin-bottom: 15px">
+              <div class="logo-icon">⚓</div>
+              <div class="logo-text">
+                <h2 style="color: white">РечКруиз</h2>
+              </div>
+            </div>
+            <p style="color: #94a3b8">
+              Организация речных круизов по России и Европе с 2005 года
+            </p>
+          </div>
+
+          <div class="footer-section">
+            <h3>Контакты</h3>
+            <ul>
+              <li>☎️ +7 (495) 123-45-67</li>
+              <li>📧 info@rechkruiz.ru</li>
+              <li>📍 Москва, ул. Речная, д. 15</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2025 РечКруиз. Все права защищены.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/data.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/booking.js"></script>
+  </body>
+</html>
